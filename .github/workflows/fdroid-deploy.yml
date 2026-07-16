@@ -35,22 +35,12 @@ jobs:
         run: |
           cd android
           ./gradlew assembleRelease
-      
-      - name: Sign APK
-        env:
-          KEYSTORE_PASS: ${{ secrets.KEYSTORE_PASS }}
-          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-          KEY_PASS: ${{ secrets.KEY_PASS }}
-        run: |
-          jarsigner -verbose -sigalg MD5withRSA -digestalg SHA1 \
-            -keystore .keystore -storepass $KEYSTORE_PASS -keypass $KEY_PASS \
-            app/build/outputs/apk/release/app-release-unsigned.apk $KEY_ALIAS
-      
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
           files: android/app/build/outputs/apk/release/app-release-unsigned.apk
-          draft: true
+          draft: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
