@@ -1,0 +1,42 @@
+Categories:
+  - Maps
+License: MIT
+WebSite: https://711-samui-map.girard-davila.net
+SourceCode: https://github.com/alx/711-samui-map
+IssueTracker: https://github.com/alx/711-samui-map/issues
+Changelog: https://github.com/alx/711-samui-map/releases
+
+AutoName: 711 Samui Map
+
+Description: |
+  Interactive Android app for finding all 7-Eleven convenience stores on Koh Samui, Thailand.
+
+  Features:
+  • Interactive map with 98 verified store locations
+  • Browse by area (Bophut, Lamai, Maenam, Nathon, and more)
+  • Search stores by name or location
+  • Direct navigation to OsmAnd or Google Maps
+  • Lightweight (~14 MB) and offline-ready
+  • No tracking, no analytics, no ads
+  • Open source (MIT License)
+
+  The app displays all convenience stores across 7 geographic areas on Koh Samui island,
+  making it easy to find a 7-Eleven when you need one. Get directions directly to your
+  preferred store using your navigation app of choice.
+
+  Perfect for travelers and locals exploring Koh Samui.
+
+Builds:
+  - versionName: '1.0.1'
+    versionCode: 101
+    commit: main
+    subdir: android
+    gradle:
+      - yes
+    buildozer:
+      - no
+
+CurrentVersion: '1.0.1'
+CurrentVersionCode: 101
+
+VercodeOperation: (package.split_apk + package.split_dpi).reduce((acc, apk) => { acc += apk.architectures; return acc; }, 0)
