@@ -1,0 +1,11 @@
+Interactive map showcasing all 7-Eleven store locations on Koh Samui, Thailand.
+
+Features:
+- 98 verified store locations with GPS coordinates
+- Offline-capable map interface powered by Leaflet.js
+- Quick access to store information
+- Light and responsive design (~14 MB APK)
+- Android 11+ compatible
+- MIT License - Open Source
+
+The 711 Samui Map makes it easy to find the nearest 7-Eleven store wherever you are on the island.
