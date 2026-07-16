@@ -1,0 +1,52 @@
+name: F-Droid Deploy
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+      
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v2
+      
+      - name: Build APK
+        run: |
+          cd android
+          ./gradlew assembleRelease
+      
+      - name: Sign APK
+        env:
+          KEYSTORE_PASS: ${{ secrets.KEYSTORE_PASS }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASS: ${{ secrets.KEY_PASS }}
+        run: |
+          jarsigner -verbose -sigalg MD5withRSA -digestalg SHA1 \
+            -keystore .keystore -storepass $KEYSTORE_PASS -keypass $KEY_PASS \
+            app/build/outputs/apk/release/app-release-unsigned.apk $KEY_ALIAS
+      
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: android/app/build/outputs/apk/release/app-release-unsigned.apk
+          draft: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Notify F-Droid
+        run: |
+          echo "Release created. To publish to F-Droid:"
+          echo "1. Add repository metadata to fdroid/"
+          echo "2. Submit to F-Droid repository"
+          echo "3. F-Droid will build and sign the APK"
