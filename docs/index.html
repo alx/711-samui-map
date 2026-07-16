@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="711 Samui Map - Interactive Android app for finding 7-Eleven stores on Koh Samui, Thailand">
+    <meta name="theme-color" content="#00a651">
+    <title>711 Samui Map — Android App</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem 1rem; }
+        header {
+            background: white;
+            border-bottom: 3px solid #00a651;
+            margin-bottom: 3rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem 1rem;
+        }
+        .logo { font-size: 1.8rem; font-weight: 700; color: #00a651; }
+        nav a {
+            color: #555;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: #00a651; }
+        h1 {
+            font-size: 3rem;
+            color: #00a651;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .subtitle { font-size: 1.3rem; color: #666; margin-bottom: 2rem; }
+        .hero {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .hero img { max-width: 100%; height: auto; border-radius: 8px; margin-top: 2rem; }
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid #00a651;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn-primary {
+            background: #00a651;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #008a3b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,166,81,0.3);
+        }
+        .btn-secondary {
+            background: white;
+            color: #00a651;
+        }
+        .btn-secondary:hover {
+            background: #f0fff6;
+            transform: translateY(-2px);
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+        .feature-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .feature-card h3 { color: #00a651; margin-bottom: 0.5rem; font-size: 1.2rem; }
+        .feature-card p { color: #666; font-size: 0.95rem; }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .stat-box {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            border-top: 3px solid #00a651;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .stat-number { font-size: 2.5rem; font-weight: 700; color: #00a651; }
+        .stat-label { color: #666; font-size: 0.9rem; margin-top: 0.5rem; }
+        .section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .section h2 {
+            font-size: 2rem;
+            color: #00a651;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #00a651;
+            padding-bottom: 0.5rem;
+        }
+        .section h3 { color: #333; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+        .section p, .section li { margin-bottom: 0.8rem; color: #555; line-height: 1.7; }
+        .section ul { margin-left: 1.5rem; }
+        code {
+            background: #f5f5f5;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: "Courier New", monospace;
+            font-size: 0.9rem;
+            color: #d63384;
+        }
+        .code-block {
+            background: #1e1e1e;
+            color: #e0e0e0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-family: "Courier New", monospace;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+        .code-block code { background: none; color: inherit; padding: 0; }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        .data-table th {
+            background: #f5f5f5;
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 2px solid #ddd;
+            font-weight: 600;
+            color: #333;
+        }
+        .data-table td {
+            padding: 0.8rem;
+            border-bottom: 1px solid #eee;
+        }
+        .data-table tr:hover { background: #f9f9f9; }
+        footer {
+            background: #1e1e1e;
+            color: #e0e0e0;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+        footer a { color: #00a651; text-decoration: none; font-weight: 600; }
+        footer a:hover { text-decoration: underline; }
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            header .container { flex-direction: column; text-align: center; }
+            nav a { margin: 0.5rem 1rem; }
+            .cta-buttons { flex-direction: column; }
+            .btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">🏪 711 Samui Map</div>
+            <nav>
+                <a href="#features">Features</a>
+                <a href="#install">Install</a>
+                <a href="#build">Build</a>
+                <a href="#github">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="hero">
+            <h1>🏪 711 Samui Map</h1>
+            <p class="subtitle">Find all 7-Eleven stores on Koh Samui with one tap</p>
+            <p style="color: #666; font-size: 1.1rem; margin: 1rem 0;">Interactive Android app with 98 verified store locations, area filters, and direct navigation to OsmAnd or Google Maps.</p>
+
+            <div class="cta-buttons">
+                <a href="https://hands.build" class="btn btn-primary">📲 Download from hands.build</a>
+                <a href="https://github.com/alx/711-samui-map" class="btn btn-secondary">⭐ View on GitHub</a>
+            </div>
+
+            <img src="./screenshots/map.png" alt="711 Samui Map App Screenshot" style="max-width: 500px;">
+        </div>
+
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-number">98</div>
+                <div class="stat-label">Store Locations</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">7</div>
+                <div class="stat-label">Geographic Areas</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">~14 MB</div>
+                <div class="stat-label">App Size</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">Free</div>
+                <div class="stat-label">MIT License</div>
+            </div>
+        </div>
+
+        <div class="section" id="features">
+            <h2>✨ Features</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🗺️</div>
+                    <h3>Interactive Map</h3>
+                    <p>Leaflet-powered map with 98 7-Eleven locations marked and searchable by area.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📍</div>
+                    <h3>Area Filters</h3>
+                    <p>Browse stores by Bophut, Lamai, Maenam, Nathon, and more with quick counts.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Smart Search</h3>
+                    <p>Find stores by name or area. Instant filtering as you type.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧭</div>
+                    <h3>Direct Navigation</h3>
+                    <p>Open OsmAnd or Google Maps directly to any store for turn-by-turn directions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Offline Ready</h3>
+                    <p>Works offline. Map tiles cached on first load for fast access without internet.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Lightweight</h3>
+                    <p>Only ~14 MB. Minimal resource usage for smooth performance on any Android device.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="install">
+            <h2>🚀 Installation</h2>
+
+            <h3>Option 1: hands.build (Recommended)</h3>
+            <p>Download from <a href="https://hands.build" style="color: #00a651; font-weight: 600;">hands.build</a>:</p>
+            <ul>
+                <li>Auto-updates enabled</li>
+                <li>Preview channel available for beta testing</li>
+                <li>Trusted distribution platform</li>
+            </ul>
+
+            <h3>Option 2: F-Droid</h3>
+            <p>Coming soon! App will be available on F-Droid for open-source Android apps.</p>
+
+            <h3>Option 3: Direct APK</h3>
+            <p>Download from <a href="https://github.com/alx/711-samui-map/releases" style="color: #00a651; font-weight: 600;">GitHub Releases</a>:</p>
+            <ol>
+                <li>Enable "Install from unknown sources" in device settings (if needed)</li>
+                <li>Download and tap the <code>.apk</code> file</li>
+                <li>Follow the installation prompts</li>
+            </ol>
+        </div>
+
+        <div class="section" id="build">
+            <h2>🛠️ Build from Source</h2>
+
+            <h3>Prerequisites</h3>
+            <ul>
+                <li><strong>Android SDK</strong> (API 34+) — <a href="https://developer.android.com/studio/install" style="color: #00a651;">Install</a></li>
+                <li><strong>Java 21+</strong></li>
+                <li><strong>Node.js 18+</strong></li>
+            </ul>
+
+            <h3>Quick Start</h3>
+            <div class="code-block"><code>
+# Clone the repository
+git clone https://github.com/alx/711-samui-map.git
+cd 711-samui-map
+
+# Set Android SDK path
+export ANDROID_HOME=$HOME/Android/Sdk
+
+# Build
+./build.sh release
+
+# Output: android/app/build/outputs/apk/release/app-release.apk
+            </code></div>
+
+            <p>For detailed build instructions, see <a href="https://github.com/alx/711-samui-map/blob/main/BUILD_INSTRUCTIONS.md" style="color: #00a651; font-weight: 600;">BUILD_INSTRUCTIONS.md</a></p>
+        </div>
+
+        <div class="section">
+            <h2>📊 Store Data</h2>
+
+            <h3>Current Coverage</h3>
+            <p><strong>Total Stores:</strong> 98 verified locations</p>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Area</th>
+                        <th>Stores</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Bophut</td><td>48</td></tr>
+                    <tr><td>Lamai</td><td>19</td></tr>
+                    <tr><td>Maenam</td><td>12</td></tr>
+                    <tr><td>Nathon</td><td>7</td></tr>
+                    <tr><td>South Samui</td><td>4</td></tr>
+                    <tr><td>Lipa Noi</td><td>4</td></tr>
+                    <tr><td>Taling Ngam</td><td>3</td></tr>
+                    <tr><td>Other</td><td>1</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Updating Store Data</h3>
+            <ol>
+                <li>Edit <code>www/locations.geojson</code> with new locations</li>
+                <li>Rebuild the APK: <code>./build.sh release</code></li>
+                <li>Test on device, then release via hands.build</li>
+            </ol>
+        </div>
+
+        <div class="section" id="github">
+            <h2>🔐 Security & Licensing</h2>
+
+            <h3>Permissions</h3>
+            <p>The app requests minimal permissions:</p>
+            <ul>
+                <li><strong>INTERNET</strong> — Fetch map tiles and routing (optional, works offline without)</li>
+                <li><strong>ACCESS_FINE_LOCATION</strong> — User geolocation on map (optional, disabled by default)</li>
+            </ul>
+
+            <h3>Privacy</h3>
+            <ul>
+                <li>✅ No personal data collected</li>
+                <li>✅ No analytics or tracking</li>
+                <li>✅ No ads or third-party SDKs</li>
+                <li>✅ All code is open-source and auditable</li>
+            </ul>
+
+            <h3>License</h3>
+            <p><strong>MIT License</strong> — See <a href="https://github.com/alx/711-samui-map/blob/main/LICENSE" style="color: #00a651;">LICENSE</a> for details.</p>
+            <p>You are free to use, modify, and distribute this software for any purpose, including commercial use.</p>
+        </div>
+
+        <div class="section">
+            <h2>📱 App Details</h2>
+            <table class="data-table">
+                <tbody>
+                    <tr><td><strong>Name</strong></td><td>711 Samui Map</td></tr>
+                    <tr><td><strong>Package ID</strong></td><td>com.girardavila.samui711map</td></tr>
+                    <tr><td><strong>Version</strong></td><td>1.0.1</td></tr>
+                    <tr><td><strong>Min Android</strong></td><td>API 24 (Android 7.0)</td></tr>
+                    <tr><td><strong>Target Android</strong></td><td>API 34 (Android 14)</td></tr>
+                    <tr><td><strong>Size</strong></td><td>~14 MB</td></tr>
+                    <tr><td><strong>License</strong></td><td>MIT</td></tr>
+                    <tr><td><strong>Source</strong></td><td><a href="https://github.com/alx/711-samui-map" style="color: #00a651;">GitHub</a></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>🤝 Contributing</h2>
+            <p>Found a bug or want to improve the app? Contributions welcome!</p>
+            <ol>
+                <li>Fork the repository</li>
+                <li>Create a feature branch: <code>git checkout -b feature/your-feature</code></li>
+                <li>Commit your changes: <code>git commit -m "Add feature X"</code></li>
+                <li>Push to branch: <code>git push origin feature/your-feature</code></li>
+                <li>Open a <a href="https://github.com/alx/711-samui-map/pulls" style="color: #00a651;">Pull Request</a></li>
+            </ol>
+
+            <h3>Areas for Contribution</h3>
+            <ul>
+                <li>New 7-Eleven locations (update <code>www/locations.geojson</code>)</li>
+                <li>UI/UX improvements</li>
+                <li>Additional languages/translations</li>
+                <li>Performance optimizations</li>
+                <li>Bug fixes</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>711 Samui Map</strong> — Free, open-source Android app for finding 7-Eleven stores on Koh Samui</p>
+        <p style="margin-top: 1rem;">
+            <a href="https://github.com/alx/711-samui-map">GitHub</a> •
+            <a href="https://hands.build">hands.build</a> •
+            <a href="https://github.com/alx/711-samui-map/blob/main/LICENSE">MIT License</a>
+        </p>
+        <p style="margin-top: 1rem; opacity: 0.7;">Made with ❤️ for Koh Samui travelers and locals.</p>
+    </footer>
+</body>
+</html>
