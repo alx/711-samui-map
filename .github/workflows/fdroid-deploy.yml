@@ -53,8 +53,10 @@ jobs:
           APK_UNSIGNED="android/app/build/outputs/apk/release/app-release-unsigned.apk"
           APK_SIGNED="android/app/build/outputs/apk/release/app-release.apk"
 
-          # Use apksigner for v2 signatures (required for Android 11+)
-          $ANDROID_HOME/build-tools/*/apksigner sign \
+          # Find apksigner and use it to sign with v2 scheme (required for Android 11+)
+          APKSIGNER=$(find $ANDROID_HOME/build-tools -name apksigner -type f | sort -V | tail -1)
+
+          $APKSIGNER sign \
             --ks ~/.android/debug.keystore \
             --ks-pass pass:android \
             --ks-key-alias androiddebugkey \
@@ -63,6 +65,7 @@ jobs:
             $APK_UNSIGNED
 
           echo "✅ APK signed successfully: $APK_SIGNED"
+          ls -lh $APK_SIGNED
 
       - name: Create GitHub Release with signed APK
         uses: softprops/action-gh-release@v1
