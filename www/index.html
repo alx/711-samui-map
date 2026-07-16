@@ -1,0 +1,1812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7-Eleven Koh Samui — All Stores — Curated Travel Maps</title>
+
+  
+  <meta name="description" content="Complete map of 7-Eleven convenience stores on Koh Samui, Thailand. 65 locations across Chaweng, Lamai, Bophut, Maenam, Nathon, Choeng Mon, Hua Thanon and more — open 24/7. Coordinates sourced from OpenStreetMap.">
+  <meta name="author" content="alxgirard">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="#ZgotmplZ">
+
+  
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="7-Eleven Koh Samui — All Stores — Curated Travel Maps">
+  <meta property="og:description" content="Complete map of 7-Eleven convenience stores on Koh Samui, Thailand. 65 locations across Chaweng, Lamai, Bophut, Maenam, Nathon, Choeng Mon, Hua Thanon and more — open 24/7. Coordinates sourced from OpenStreetMap.">
+  <meta property="og:url" content="file:///711-samui/">
+  <meta property="og:site_name" content="Curated Travel Maps">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="7-Eleven Koh Samui — All Stores — Curated Travel Maps">
+  <meta name="twitter:description" content="Complete map of 7-Eleven convenience stores on Koh Samui, Thailand. 65 locations across Chaweng, Lamai, Bophut, Maenam, Nathon, Choeng Mon, Hua Thanon and more — open 24/7. Coordinates sourced from OpenStreetMap.">
+
+  
+  
+
+  
+  <script>
+    (function () {
+      try {
+        var isEmbed = new URLSearchParams(window.location.search).get('embed') === '1'
+          || window.self !== window.top;
+        if (isEmbed) document.documentElement.classList.add('embed-mode');
+      } catch (e) {}
+    })();
+  </script>
+
+  
+  <script src="https://unpkg.com/topojson-client@3/dist/topojson-client.min.js" defer></script>
+  
+  <script src="https://unpkg.com/html-to-image@1.11.11/dist/html-to-image.js" defer></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f9fa; color: #1a1a1a; }
+    .site-header { background: #1a3a5c; color: white; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; }
+    .site-header h1 { font-size: 1.25rem; font-weight: 600; }
+    .site-header a { color: white; text-decoration: none; }
+    .site-nav { display: flex; gap: 1.5rem; margin-left: auto; font-size: 0.9rem; }
+    .site-nav a:hover { text-decoration: underline; }
+    main { max-width: 1200px; margin: 0 auto; padding: 1.5rem; }
+    footer { text-align: center; padding: 2rem; color: #666; font-size: 0.85rem; margin-top: 2rem; }
+
+     
+    html.embed-mode .site-header   { display: none !important; }
+    html.embed-mode footer         { display: none !important; }
+    html.embed-mode main           { max-width: 100%; padding: 0 !important; margin: 0 !important; }
+    html.embed-mode .page-header   { display: none !important; }
+    html.embed-mode #map-toolbar   { display: none !important; }
+    html.embed-mode .contact-form-float { display: none !important; }
+    html.embed-mode .map-footer-cta     { display: none !important; }
+    html.embed-mode #map           { height: 100% !important; border-radius: 0 !important; box-shadow: none !important; }
+     
+    html.embed-mode .sidebar       { display: none !important; }
+    html.embed-mode .map-overlay > .overlay-card:first-child { display: none; }
+    html.embed-mode .map-overlay   { display: none; }
+    html.embed-mode body           { background: white; }
+
+     
+    .embed-overlay-toggle { display: none; }
+    html.embed-mode .embed-overlay-toggle {
+      display: flex; align-items: center; justify-content: center;
+      position: fixed; bottom: 1rem; left: 1rem; z-index: 300;
+      width: 36px; height: 36px;
+      background: rgba(255,255,255,0.95); backdrop-filter: blur(8px);
+      border: 1px solid rgba(0,0,0,0.15); border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+      cursor: pointer; font-size: 1.05rem; line-height: 1;
+      transition: background 0.15s;
+    }
+    html.embed-mode .embed-overlay-toggle:hover { background: white; }
+     
+    @media (max-width: 768px) {
+      html.embed-mode .embed-overlay-toggle { left: auto; right: 1rem; bottom: 1rem; }
+    }
+  </style>
+  
+<style>
+   
+  body { overflow: hidden; }
+  .site-header, footer { display: none !important; }
+  main { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
+  #map { position: fixed; inset: 0; z-index: 0; border-radius: 0 !important; box-shadow: none !important; transition: left 0.25s ease, bottom 0.25s ease; }
+
+   
+  .map-overlay {
+    position: fixed; left: 1rem; top: 1rem; bottom: 1rem;
+    width: 340px; z-index: 100;
+    display: flex; flex-direction: column; gap: 0.5rem;
+    pointer-events: none;
+  }
+  .map-overlay > * { pointer-events: all; }
+  .overlay-card {
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px; padding: 0.85rem 1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.13); border: 1px solid rgba(255,255,255,0.6);
+  }
+  .overlay-card.scrollable {
+    flex: 1; min-height: 0; overflow-y: auto;
+    display: flex; flex-direction: column; gap: 0.5rem;
+  }
+  .overlay-card .page-header h1 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.2rem; }
+  .overlay-card .page-header p { font-size: 0.82rem; color: #666; }
+  .site-brand { font-size: 0.7rem; font-weight: 600; color: #1a3a5c; text-decoration: none; display: block; margin-bottom: 0.35rem; opacity: 0.65; }
+  .site-brand:hover { opacity: 1; }
+  #map-toolbar { display: none !important; margin: 0.6rem 0 0 !important; }
+  #map-toolbar.tb-visible { display: flex !important; }
+  .header-actions { display: flex; gap: 0.4rem; margin-top: 0.5rem; flex-wrap: wrap; align-items: center; }
+  .header-btn { padding: 0.2rem 0.6rem; border-radius: 16px; border: 1.5px solid #ddd; background: white; cursor: pointer; font-size: 0.72rem; color: #555; transition: all 0.15s; }
+  .header-btn:hover, .header-btn.active { border-color: #00a651; color: #00a651; background: #f0fff6; }
+  #list-toggle { display: none; }
+
+   
+  .count-badge {
+    display: inline-block; background: #00a651; color: white;
+    font-size: 0.7rem; font-weight: 700; padding: 0.1rem 0.45rem;
+    border-radius: 20px; margin-left: 0.3rem;
+  }
+
+   
+  .filter-btn {
+    padding: 0.3rem 0.7rem; border-radius: 20px; border: 1.5px solid #ddd;
+    background: white; cursor: pointer; font-size: 0.78rem; font-weight: 500; transition: all 0.15s; white-space: nowrap;
+  }
+  .filter-btn.active { background: #00a651; color: white; border-color: #00a651; }
+  #filter-btns { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+
+   
+  .poi-card {
+    background: white; border-radius: 10px; padding: 0.75rem 0.85rem;
+    cursor: pointer;
+    border: 2px solid transparent; transition: all 0.15s; flex-shrink: 0;
+  }
+  .poi-card:hover, .poi-card.active { border-color: #00a651; }
+  .poi-card h3 { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.2rem; }
+  .poi-card .poi-meta { font-size: 0.76rem; color: #888; }
+  .poi-card .poi-actions { margin-top: 0.4rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .poi-card .poi-actions a { font-size: 0.74rem; color: #00a651; text-decoration: none; font-weight: 500; }
+  .poi-card .poi-actions a:hover { text-decoration: underline; }
+  .area-badge {
+    display: inline-block; font-size: 0.68rem; padding: 0.12rem 0.45rem;
+    border-radius: 20px; font-weight: 600; margin-bottom: 0.25rem;
+    background: #00a65122; color: #00a651;
+  }
+  .search-box { width: 100%; padding: 0.45rem 0.7rem; border: 1.5px solid #ddd; border-radius: 8px; font-size: 0.84rem; }
+  .search-box:focus { outline: none; border-color: #00a651; }
+  .poi-card.faded { opacity: 0.25; transition: opacity 0.25s; }
+
+  @media (max-width: 768px) {
+    #list-toggle { display: inline-block; }
+    .map-overlay { left: 0; right: 0; bottom: 0; top: auto; width: 100%; flex-direction: column-reverse; gap: 0; }
+    .overlay-card { border-radius: 0; }
+    .overlay-card:first-child { border-radius: 0; }
+    .overlay-card.scrollable { max-height: 0; overflow: hidden; padding: 0 !important; transition: max-height 0.3s ease, padding 0.15s ease; }
+    .overlay-card.scrollable.mobile-open { max-height: 45vh; overflow-y: auto; padding: 0.85rem 1rem !important; margin-bottom: 0.5rem; }
+  }
+</style>
+
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WDJF6L9P30"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WDJF6L9P30');
+  </script>
+  <meta property="og:image" content="file:///images/map-previews/711-samui.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="file:///images/map-previews/711-samui.png">
+<meta name="twitter:card" content="summary_large_image">
+
+</head>
+<body>
+  <header class="site-header">
+    <a href="/">🗺️ Maps</a>
+    <nav class="site-nav">
+    </nav>
+  </header>
+  <main>
+<div id="map"></div>
+
+
+<div class="map-overlay">
+  <div class="overlay-card">
+    <div class="page-header">
+      <h1>🏪 7-Eleven Koh Samui</h1>
+      <p>All convenience stores on the island · <span id="visible-count">65</span> locations · Open 24h</p>
+    </div>
+    
+
+<div id="map-toolbar" style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:0.75rem;align-items:center;">
+
+  
+  <button class="tb-btn" onclick="tbDownloadGeoJSON()" title="Download GeoJSON file">
+    📥 GeoJSON
+  </button>
+
+  
+  <button class="tb-btn" onclick="tbExportGPX()" title="Export as GPX for OsmAnd / GPS devices">
+    🗺️ GPX
+  </button>
+
+  
+  <button class="tb-btn" onclick="tbOpenEmbed()" title="Embed this map as an iframe">
+    &lt;/&gt; Embed
+  </button>
+
+  
+  <button class="tb-btn" onclick="tbShareURL()" id="tb-share-btn" title="Copy shareable link">
+    🔗 Share
+  </button>
+
+  
+  <button class="tb-btn" onclick="tbOpenLoad()" title="Load your own GeoJSON or TopoJSON">
+    📂 Load
+  </button>
+
+  
+  <button class="tb-btn" onclick="tbExportPNG()" id="tb-png-btn" title="Export 9:16 share card for social media (Instagram Stories, TikTok…)">
+    📸 PNG
+  </button>
+
+  
+  <button class="tb-btn tb-github" onclick="tbOpenGitHub()" title="Sign in with GitHub · Load from repo · Submit PR" id="tb-github-btn">
+    🐙 GitHub
+  </button>
+</div>
+
+<style>
+  .tb-btn {
+    padding: 0.3rem 0.7rem; border-radius: 20px; border: 1.5px solid #ddd;
+    background: white; cursor: pointer; font-size: 0.78rem; font-weight: 500;
+    transition: all 0.15s; white-space: nowrap;
+  }
+  .tb-btn:hover { background: #f0f4ff; border-color: #1a3a5c; }
+  .tb-btn.tb-github { border-color: #374151; }
+  .tb-btn.tb-github.authed { border-color: #22c55e; color: #166534; background: #f0fdf4; }
+
+   
+  .tb-modal-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 10000;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .tb-modal {
+    background: white; border-radius: 14px; padding: 1.5rem;
+    width: 90%; max-width: 460px; max-height: 85vh; overflow-y: auto;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+  }
+  .tb-modal h3 { font-size: 1rem; font-weight: 700; color: #1a3a5c; margin-bottom: 1rem; }
+  .tb-modal-close {
+    float: right; background: none; border: none; font-size: 1.2rem;
+    cursor: pointer; color: #888; margin-top: -0.2rem;
+  }
+  .tb-input {
+    width: 100%; padding: 0.45rem 0.7rem; border: 1.5px solid #ddd;
+    border-radius: 8px; font-size: 0.85rem; font-family: inherit;
+  }
+  .tb-input:focus { outline: none; border-color: #1a3a5c; }
+  .tb-code {
+    width: 100%; padding: 0.5rem 0.7rem; border: 1.5px solid #e5e7eb;
+    border-radius: 8px; font-size: 0.78rem; font-family: monospace;
+    background: #f8f9fa; resize: vertical;
+  }
+  .tb-btn-primary {
+    background: #1a3a5c; color: white; border: none; padding: 0.5rem 1.2rem;
+    border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer;
+  }
+  .tb-btn-primary:hover { background: #153050; }
+  .tb-btn-secondary {
+    background: #f0f4ff; color: #1a3a5c; border: 1.5px solid #1a3a5c;
+    padding: 0.5rem 1.2rem; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer;
+  }
+  .tb-tabs { display: flex; gap: 0; margin-bottom: 1rem; border-bottom: 2px solid #e5e7eb; }
+  .tb-tab {
+    padding: 0.4rem 0.9rem; font-size: 0.82rem; font-weight: 500; cursor: pointer;
+    border: none; background: none; color: #888; border-bottom: 2px solid transparent; margin-bottom: -2px;
+  }
+  .tb-tab.active { color: #1a3a5c; border-bottom-color: #1a3a5c; font-weight: 700; }
+  .tb-status { font-size: 0.8rem; color: #555; margin-top: 0.4rem; min-height: 1.2rem; }
+  .tb-divider { border: none; border-top: 1px solid #e5e7eb; margin: 0.9rem 0; }
+  .tb-label { font-size: 0.8rem; font-weight: 600; color: #374151; margin-bottom: 0.35rem; display: block; }
+  .tb-repo-item {
+    padding: 0.5rem 0.7rem; border-radius: 8px; border: 1.5px solid #e5e7eb;
+    cursor: pointer; font-size: 0.82rem; margin-bottom: 0.35rem; transition: border-color 0.15s;
+  }
+  .tb-repo-item:hover { border-color: #1a3a5c; }
+</style>
+
+<script>
+(function () {
+
+ 
+function getGeoJSON() {
+  if (window.MAP_CONFIG?.geojsonData) return window.MAP_CONFIG.geojsonData;
+  if (window.allPOIs) return { type: 'FeatureCollection', features: window.allPOIs };
+  return null;
+}
+
+function getTitle() { return window.MAP_CONFIG?.title || document.title; }
+
+function triggerDownload(content, filename, mime) {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([content], { type: mime }));
+  a.download = filename;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+}
+
+function closeAllModals() {
+  document.querySelectorAll('.tb-modal-overlay').forEach(m => m.remove());
+}
+
+ 
+window.tbDownloadGeoJSON = function () {
+  const data = getGeoJSON();
+  if (!data) {
+    alert('Map data not loaded yet.');
+    return;
+  }
+  const filename = (getTitle().toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') || 'map') + '.geojson';
+  triggerDownload(JSON.stringify(data, null, 2), filename, 'application/geo+json');
+};
+
+ 
+window.tbExportGPX = function () {
+  const data = getGeoJSON();
+  if (!data) { alert('Map data not loaded yet.'); return; }
+
+  const wpts = (data.features || []).filter(f => f.geometry?.type === 'Point');
+  const lines = (data.features || []).filter(f => f.geometry?.type === 'LineString');
+
+  const esc = s => String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const title = esc(getTitle());
+
+  let gpx = `<?xml version="1.0" encoding="UTF-8"?>\n`;
+  gpx += `<gpx version="1.1" creator="maps.girard-davila.net" xmlns="http://www.topografix.com/GPX/1/1">\n`;
+  gpx += `  <metadata><name>${title}</name><desc>Exported from maps.girard-davila.net</desc></metadata>\n`;
+
+  
+  wpts.forEach(f => {
+    const [lng, lat] = f.geometry.coordinates;
+    const p = f.properties || {};
+    gpx += `  <wpt lat="${lat}" lon="${lng}">\n`;
+    gpx += `    <name>${esc(p.name)}</name>\n`;
+    if (p.notes || p.address) gpx += `    <desc>${esc(p.notes || p.address)}</desc>\n`;
+    if (p.category) gpx += `    <type>${esc(p.category)}</type>\n`;
+    gpx += `  </wpt>\n`;
+  });
+
+  
+  lines.forEach(f => {
+    const p = f.properties || {};
+    gpx += `  <trk><name>${esc(p.name || 'Route')}</name><trkseg>\n`;
+    f.geometry.coordinates.forEach(([lng, lat]) => {
+      gpx += `    <trkpt lat="${lat}" lon="${lng}"></trkpt>\n`;
+    });
+    gpx += `  </trkseg></trk>\n`;
+  });
+
+  gpx += `</gpx>`;
+
+  const filename = (getTitle().toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') || 'map') + '.gpx';
+  triggerDownload(gpx, filename, 'application/gpx+xml');
+};
+
+ 
+window.tbOpenEmbed = function () {
+  closeAllModals();
+  const path = window.MAP_CONFIG?.embedPath || window.location.pathname;
+  const iframeURL = location.origin + path + '?embed=1';
+  const code = `<iframe src="${iframeURL}" width="100%" height="500" frameborder="0" style="border-radius:12px;" title="${getTitle()}"></iframe>`;
+
+  const overlay = document.createElement('div');
+  overlay.className = 'tb-modal-overlay';
+  overlay.innerHTML = `
+    <div class="tb-modal">
+      <h3>Embed this map <button class="tb-modal-close" onclick="this.closest('.tb-modal-overlay').remove()">✕</button></h3>
+      <label class="tb-label">iframe code — paste into any webpage:</label>
+      <textarea class="tb-code" rows="4" readonly id="tb-embed-code">${code}</textarea>
+      <div style="margin-top:0.75rem;display:flex;gap:0.5rem;flex-wrap:wrap;">
+        <button class="tb-btn-primary" onclick="
+          navigator.clipboard.writeText(document.getElementById('tb-embed-code').value);
+          this.textContent='✅ Copied!';setTimeout(()=>this.textContent='📋 Copy code',1800);">
+          📋 Copy code
+        </button>
+        <button class="tb-btn-secondary" onclick="this.closest('.tb-modal-overlay').remove()">Close</button>
+      </div>
+      <hr class="tb-divider">
+      <label class="tb-label" style="margin-bottom:0.25rem;">Preview (live):</label>
+      <iframe src="${iframeURL}" width="100%" height="220" frameborder="0" style="border-radius:8px;border:1px solid #e5e7eb;" loading="lazy"></iframe>
+    </div>`;
+  document.body.appendChild(overlay);
+  overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
+};
+
+ 
+window.tbShareURL = function () {
+  navigator.clipboard.writeText(location.href).then(() => {
+    const btn = document.getElementById('tb-share-btn');
+    btn.textContent = '✅ Copied!';
+    setTimeout(() => btn.textContent = '🔗 Share', 1800);
+  });
+};
+
+ 
+window.tbOpenLoad = function () {
+  closeAllModals();
+  const pat = localStorage.getItem('github_pat') || '';
+  const overlay = document.createElement('div');
+  overlay.className = 'tb-modal-overlay';
+  overlay.innerHTML = `
+    <div class="tb-modal" style="max-width:500px;">
+      <h3>Load custom map data <button class="tb-modal-close" onclick="this.closest('.tb-modal-overlay').remove()">✕</button></h3>
+
+      <div class="tb-tabs">
+        <button class="tb-tab active" onclick="tbLoadTab('file',this)">📁 File</button>
+        <button class="tb-tab" onclick="tbLoadTab('url',this)">🔗 URL</button>
+        <button class="tb-tab" onclick="tbLoadTab('forks',this);tbLoadForks()">🐙 GitHub Forks</button>
+      </div>
+
+      \x3C!-- File tab -->
+      <div id="tb-load-file">
+        <p style="font-size:0.82rem;color:#555;margin-bottom:0.75rem;">Upload a <strong>GeoJSON</strong> or <strong>TopoJSON</strong> file from your device.</p>
+        <input type="file" accept=".geojson,.json,.topojson" style="font-size:0.82rem;" onchange="tbLoadFile(this)">
+      </div>
+
+      \x3C!-- URL tab -->
+      <div id="tb-load-url" style="display:none;">
+        <p style="font-size:0.82rem;color:#555;margin-bottom:0.75rem;">Load from any public URL — GitHub raw, S3, Gist, etc.</p>
+        <div style="display:flex;gap:0.4rem;margin-bottom:0.5rem;">
+          <input class="tb-input" id="tb-url-input" type="url" placeholder="https://raw.githubusercontent.com/…/file.geojson" style="flex:1;">
+          <button class="tb-btn-primary" onclick="tbLoadURL()">Load</button>
+        </div>
+        <p id="tb-load-status" class="tb-status"></p>
+      </div>
+
+      \x3C!-- GitHub Forks tab -->
+      <div id="tb-load-forks" style="display:none;">
+        <p style="font-size:0.82rem;color:#555;margin-bottom:0.75rem;">
+          Browse public forks of <strong>alx/travel-guide</strong> and load their GeoJSON/TopoJSON files.
+          ${pat ? '' : '<br><span style="color:#888;">Sign in via 🐙 GitHub for higher rate limits.</span>'}
+        </p>
+        <div id="tb-forks-list" style="max-height:360px;overflow-y:auto;">
+          <p style="color:#888;font-size:0.82rem;text-align:center;padding:1rem;">⏳ Loading forks…</p>
+        </div>
+        <p id="tb-forks-status" class="tb-status"></p>
+      </div>
+    </div>`;
+  document.body.appendChild(overlay);
+  overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
+};
+
+window.tbLoadTab = function(tab, btn) {
+  ['file','url','forks'].forEach(t => {
+    document.getElementById('tb-load-' + t).style.display = t === tab ? '' : 'none';
+  });
+  document.querySelectorAll('.tb-modal .tb-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+};
+
+ 
+window.tbLoadForks = async function() {
+  const list = document.getElementById('tb-forks-list');
+  const status = document.getElementById('tb-forks-status');
+  if (!list) return;
+
+  const pat = localStorage.getItem('github_pat') || '';
+  const headers = pat
+    ? { Authorization: 'Bearer ' + pat, 'X-GitHub-Api-Version': '2022-11-28' }
+    : { 'X-GitHub-Api-Version': '2022-11-28' };
+
+  try {
+    
+    const r = await fetch('https://api.github.com/repos/alx/travel-guide/forks?per_page=100&sort=newest', { headers });
+    if (r.status === 403) { list.innerHTML = '<p style="color:#888;font-size:0.82rem;padding:0.5rem;">⚠️ GitHub rate limit hit. Sign in via 🐙 GitHub for more requests.</p>'; return; }
+    const forks = await r.json();
+
+    if (!Array.isArray(forks) || forks.length === 0) {
+      list.innerHTML = '<p style="color:#888;font-size:0.82rem;padding:0.5rem;">No public forks found yet. Be the first to fork <a href="https://github.com/alx/travel-guide" target="_blank">alx/travel-guide</a>!</p>';
+      return;
+    }
+
+    list.innerHTML = '';
+    forks.forEach(fork => {
+      const item = document.createElement('div');
+      item.style.cssText = 'border:1.5px solid #e5e7eb;border-radius:10px;padding:0.75rem;margin-bottom:0.5rem;';
+      item.innerHTML = `
+        <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;">
+          <img src="${fork.owner.avatar_url}" width="22" height="22" style="border-radius:50%;">
+          <strong style="font-size:0.85rem;color:#1a3a5c;">
+            <a href="${fork.html_url}" target="_blank" style="color:inherit;text-decoration:none;">${fork.full_name}</a>
+          </strong>
+          <span style="font-size:0.72rem;color:#888;margin-left:auto;">${new Date(fork.updated_at).toLocaleDateString()}</span>
+        </div>
+        <div style="display:flex;gap:0.4rem;align-items:center;">
+          <select id="branch-${fork.id}" class="tb-input" style="flex:1;padding:0.3rem 0.5rem;font-size:0.8rem;" onchange="tbForkBranchChange('${fork.owner.login}','travel-guide',this.value,'files-${fork.id}')">
+            <option value="">⏳ Loading branches…</option>
+          </select>
+        </div>
+        <div id="files-${fork.id}" style="margin-top:0.5rem;"></div>`;
+      list.appendChild(item);
+
+      
+      tbLoadForkBranches(fork.owner.login, 'travel-guide', fork.id, headers);
+    });
+
+    status.textContent = `${forks.length} fork${forks.length === 1 ? '' : 's'} found.`;
+  } catch (err) {
+    list.innerHTML = '<p style="color:#888;font-size:0.82rem;padding:0.5rem;">❌ Failed to load forks: ' + err.message + '</p>';
+  }
+};
+
+window.tbLoadForkBranches = async function(owner, repo, forkId, headers) {
+  const select = document.getElementById('branch-' + forkId);
+  if (!select) return;
+  try {
+    const r = await fetch(`https://api.github.com/repos/${owner}/${repo}/branches?per_page=30`, { headers });
+    const branches = await r.json();
+    if (!Array.isArray(branches)) { select.innerHTML = '<option>No branches</option>'; return; }
+    select.innerHTML = '<option value="">— pick a branch —</option>'
+      + branches.map(b => `<option value="${b.name}"${b.name === 'main' || b.name === 'master' ? ' selected' : ''}>${b.name}</option>`).join('');
+    
+    const def = branches.find(b => b.name === 'main' || b.name === 'master') || branches[0];
+    if (def) tbForkBranchChange(owner, repo, def.name, 'files-' + forkId);
+  } catch {
+    select.innerHTML = '<option>Error loading</option>';
+  }
+};
+
+window.tbForkBranchChange = async function(owner, repo, branch, filesContainerId) {
+  const container = document.getElementById(filesContainerId);
+  if (!container || !branch) return;
+  container.innerHTML = '<span style="font-size:0.75rem;color:#888;">⏳ Scanning for GeoJSON…</span>';
+
+  const pat = localStorage.getItem('github_pat') || '';
+  const headers = pat
+    ? { Authorization: 'Bearer ' + pat, 'X-GitHub-Api-Version': '2022-11-28' }
+    : { 'X-GitHub-Api-Version': '2022-11-28' };
+
+  try {
+    
+    const refR = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/ref/heads/${encodeURIComponent(branch)}`, { headers });
+    const refData = await refR.json();
+    const sha = refData.object?.sha;
+    if (!sha) { container.innerHTML = '<span style="font-size:0.75rem;color:#888;">Branch not found.</span>'; return; }
+
+    const treeR = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/trees/${sha}?recursive=1`, { headers });
+    const treeData = await treeR.json();
+
+    const geoFiles = (treeData.tree || []).filter(f =>
+      f.type === 'blob' && /\.(geo)?json|\.topojson$/i.test(f.path) && f.path.startsWith('static/')
+    );
+
+    if (!geoFiles.length) {
+      container.innerHTML = '<span style="font-size:0.75rem;color:#888;">No GeoJSON/TopoJSON files in static/.</span>';
+      return;
+    }
+
+    container.innerHTML = geoFiles.map(f => {
+      const rawUrl = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${f.path}`;
+      const label = f.path.replace('static/', '').replace('/locations.geojson', '').replace(/\.(geo)?json|\.topojson$/i, '');
+      return `<div class="tb-repo-item" style="display:flex;align-items:center;gap:0.5rem;padding:0.4rem 0.6rem;" onclick="tbLoadURL_direct('${rawUrl}','${label}')">
+        <span style="font-size:1rem;">📄</span>
+        <span style="font-size:0.8rem;font-weight:500;flex:1;">${label}</span>
+        <span style="font-size:0.72rem;color:#888;">${f.path.split('/').pop()}</span>
+      </div>`;
+    }).join('');
+  } catch (err) {
+    container.innerHTML = '<span style="font-size:0.75rem;color:#c00;">❌ ' + err.message + '</span>';
+  }
+};
+
+window.tbLoadFile = function(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const data = JSON.parse(e.target.result);
+      tbIngestData(data, file.name);
+      input.closest('.tb-modal-overlay').remove();
+    } catch (err) {
+      document.getElementById('tb-load-status').textContent = '❌ Invalid JSON: ' + err.message;
+    }
+  };
+  reader.readAsText(file);
+};
+
+window.tbLoadURL = function() {
+  const url = document.getElementById('tb-url-input').value.trim();
+  const status = document.getElementById('tb-load-status');
+  if (!url) return;
+  status.textContent = '⏳ Loading…';
+  fetch(url)
+    .then(r => r.json())
+    .then(data => {
+      tbIngestData(data, url.split('/').pop());
+      document.querySelector('.tb-modal-overlay')?.remove();
+    })
+    .catch(err => {
+      status.textContent = '❌ Failed to load: ' + err.message;
+    });
+};
+
+window.tbIngestData = function(data, sourceName) {
+  let geojson;
+  if (data.type === 'Topology') {
+    
+    if (typeof topojson === 'undefined') {
+      alert('topojson-client not loaded. Cannot convert TopoJSON.');
+      return;
+    }
+    const features = [];
+    Object.keys(data.objects).forEach(key => {
+      const fc = topojson.feature(data, data.objects[key]);
+      features.push(...fc.features);
+    });
+    geojson = { type: 'FeatureCollection', features };
+  } else if (data.type === 'FeatureCollection' || data.type === 'Feature') {
+    geojson = data.type === 'Feature' ? { type: 'FeatureCollection', features: [data] } : data;
+  } else {
+    alert('Unrecognised format. Expected GeoJSON FeatureCollection or TopoJSON Topology.');
+    return;
+  }
+
+  if (typeof window.loadCustomData === 'function') {
+    window.loadCustomData(geojson, sourceName);
+  } else {
+    alert('This map page does not support live data loading yet.');
+  }
+};
+
+ 
+window.tbOpenGitHub = function () {
+  closeAllModals();
+  const pat = localStorage.getItem('github_pat') || '';
+  const user = JSON.parse(localStorage.getItem('github_user') || 'null');
+  const overlay = document.createElement('div');
+  overlay.className = 'tb-modal-overlay';
+  overlay.id = 'tb-github-overlay';
+  overlay.innerHTML = `
+    <div class="tb-modal" style="max-width:520px;">
+      <h3>🐙 GitHub Integration <button class="tb-modal-close" onclick="this.closest('.tb-modal-overlay').remove()">✕</button></h3>
+
+      <div class="tb-tabs">
+        <button class="tb-tab active" onclick="tbGHTab('signin',this)" id="gh-tab-signin">Sign In</button>
+        <button class="tb-tab" onclick="tbGHTab('load',this)" id="gh-tab-load">Load GeoJSON</button>
+        <button class="tb-tab" onclick="tbGHTab('pr',this)" id="gh-tab-pr">Submit PR</button>
+      </div>
+
+      \x3C!-- Sign In Tab -->
+      <div id="gh-panel-signin">
+        ${user ? `
+          <div style="background:#f0fdf4;border:1.5px solid #86efac;border-radius:10px;padding:1rem;margin-bottom:0.9rem;display:flex;align-items:center;gap:0.75rem;">
+            <img src="${user.avatar_url}" width="40" height="40" style="border-radius:50%;">
+            <div>
+              <div style="font-weight:700;color:#166534;">✅ Signed in as <a href="${user.html_url}" target="_blank" style="color:#166534;">@${user.login}</a></div>
+              <div style="font-size:0.78rem;color:#555;">${user.name || ''}</div>
+            </div>
+          </div>
+          <button class="tb-btn-secondary" onclick="tbGHSignOut()" style="width:100%;">Sign out</button>
+        ` : `
+          <p style="font-size:0.82rem;color:#555;line-height:1.6;margin-bottom:0.9rem;">Sign in to load GeoJSON files from your own GitHub repositories and submit pull requests to <strong>alx/travel-guide</strong>.</p>
+
+          <div style="background:#eff6ff;border-radius:10px;padding:1rem;margin-bottom:0.9rem;border:1px solid #bfdbfe;">
+            <div style="font-weight:700;font-size:0.85rem;color:#1e40af;margin-bottom:0.5rem;">🔐 OAuth sign-in (recommended)</div>
+            <p style="font-size:0.78rem;color:#555;margin-bottom:0.6rem;">Redirects to GitHub to authorize — no token copy-paste needed.</p>
+            <button class="tb-btn-primary" onclick="tbGHOAuthStart()" style="width:100%;">Sign in with GitHub →</button>
+            <p id="gh-device-status" class="tb-status" style="text-align:center;min-height:1.4rem;"></p>
+            <div id="gh-device-code-box" style="display:none;text-align:center;margin-top:0.5rem;">
+              <div style="font-size:0.82rem;color:#555;margin-bottom:0.35rem;">Enter this code at <a href="https://github.com/login/device" target="_blank" style="color:#1d4ed8;font-weight:600;">github.com/login/device</a>:</div>
+              <div id="gh-device-code-display" style="font-size:1.8rem;font-weight:800;letter-spacing:0.15em;color:#1a3a5c;padding:0.5rem;background:#f0f4ff;border-radius:8px;font-family:monospace;"></div>
+              <button onclick="window.open('https://github.com/login/device','_blank')" style="margin-top:0.5rem;background:#24292e;color:white;border:none;padding:0.4rem 1rem;border-radius:6px;font-size:0.8rem;cursor:pointer;font-weight:600;">Open GitHub →</button>
+            </div>
+          </div>
+
+          <hr class="tb-divider">
+          <div style="font-weight:700;font-size:0.85rem;color:#374151;margin-bottom:0.5rem;">🔑 Personal Access Token (PAT)</div>
+          <p style="font-size:0.78rem;color:#555;margin-bottom:0.5rem;">Generate a PAT at <a href="https://github.com/settings/tokens/new?scopes=repo,read:user&description=maps.girard-davila.net" target="_blank" style="color:#1d4ed8;">github.com/settings/tokens</a> with <code style="background:#f0f0f0;padding:0.1rem 0.3rem;border-radius:3px;">repo</code> scope.</p>
+          <div style="display:flex;gap:0.4rem;margin-bottom:0.4rem;">
+            <input class="tb-input" id="gh-pat-input" type="password" placeholder="ghp_xxxxxxxxxxxx" style="flex:1;" value="${pat}">
+            <button class="tb-btn-primary" onclick="tbGHApplyPAT()">Apply</button>
+          </div>
+          <p id="gh-pat-status" class="tb-status"></p>
+        `}
+      </div>
+
+      \x3C!-- Load GeoJSON Tab -->
+      <div id="gh-panel-load" style="display:none;">
+        ${!user ? '<p style="font-size:0.85rem;color:#888;text-align:center;padding:1rem;">Sign in first to browse your repos.</p>' : `
+          <p style="font-size:0.82rem;color:#555;margin-bottom:0.75rem;">Browse your repositories for <code style="background:#f0f0f0;padding:0.1rem 0.3rem;border-radius:3px;">.geojson</code> / <code style="background:#f0f0f0;padding:0.1rem 0.3rem;border-radius:3px;">.topojson</code> files.</p>
+          <div style="display:flex;gap:0.4rem;margin-bottom:0.6rem;">
+            <input class="tb-input" id="gh-repo-input" placeholder="${user.login}/my-repo" style="flex:1;">
+            <button class="tb-btn-primary" onclick="tbGHBrowse()">Browse</button>
+          </div>
+          <div id="gh-file-list" style="max-height:240px;overflow-y:auto;"></div>
+          <p id="gh-browse-status" class="tb-status"></p>
+        `}
+      </div>
+
+      \x3C!-- Submit PR Tab -->
+      <div id="gh-panel-pr" style="display:none;">
+        ${!user ? '<p style="font-size:0.85rem;color:#888;text-align:center;padding:1rem;">Sign in first to submit a PR.</p>' : `
+          <p style="font-size:0.82rem;color:#555;line-height:1.6;margin-bottom:0.75rem;">Add your GeoJSON to <strong>alx/travel-guide</strong>. This creates a fork and opens a pull request.</p>
+          <label class="tb-label">GeoJSON filename (without extension):</label>
+          <input class="tb-input" id="gh-pr-filename" placeholder="my-destination" style="margin-bottom:0.6rem;">
+          <label class="tb-label">PR title / description:</label>
+          <input class="tb-input" id="gh-pr-title" placeholder="Add My Destination map" style="margin-bottom:0.5rem;">
+          <textarea class="tb-input" id="gh-pr-body" rows="3" placeholder="Where is this? What kind of spots are included?" style="resize:vertical;margin-bottom:0.75rem;"></textarea>
+          <button class="tb-btn-primary" onclick="tbGHCreatePR()" style="width:100%;" id="gh-pr-btn">🚀 Fork & Create PR</button>
+          <p id="gh-pr-status" class="tb-status" style="margin-top:0.4rem;"></p>
+        `}
+      </div>
+
+    </div>`;
+  document.body.appendChild(overlay);
+  overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
+
+  
+  const ghBtn = document.getElementById('tb-github-btn');
+  if (ghBtn) ghBtn.classList.toggle('authed', !!user);
+};
+
+window.tbGHTab = function(tab, btn) {
+  ['signin','load','pr'].forEach(t => {
+    document.getElementById('gh-panel-' + t).style.display = t === tab ? '' : 'none';
+    document.getElementById('gh-tab-' + t).classList.toggle('active', t === tab);
+  });
+};
+
+ 
+window.tbGHOAuthStart = async function() {
+  const clientId = window.GITHUB_CLIENT_ID;
+  if (!clientId) {
+    document.getElementById('gh-device-status').textContent = '⚠️ GitHub Client ID not configured. Use PAT method instead.';
+    return;
+  }
+  const status = document.getElementById('gh-device-status');
+  const codeBox = document.getElementById('gh-device-code-box');
+  status.textContent = '⏳ Requesting device code…';
+
+  try {
+    const proxyUrl = window.GITHUB_WORKER_URL + '/github-device-code';
+    const res = await fetch(proxyUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ client_id: clientId, scope: 'repo read:user' })
+    });
+    if (!res.ok) throw new Error('Worker returned ' + res.status);
+    const d = await res.json();
+
+    document.getElementById('gh-device-code-display').textContent = d.user_code;
+    codeBox.style.display = '';
+    status.textContent = '⏳ Waiting for you to authorize at github.com/login/device…';
+
+    
+    let attempts = 0;
+    const interval = (d.interval || 5) * 1000;
+    const poll = setInterval(async () => {
+      attempts++;
+      if (attempts > 36) { clearInterval(poll); status.textContent = '⏰ Timed out. Try again.'; return; }
+      try {
+        const tr = await fetch(window.GITHUB_WORKER_URL + '/github-device-token', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ client_id: clientId, device_code: d.device_code, grant_type: 'urn:ietf:params:oauth:grant-type:device_code' })
+        });
+        const td = await tr.json();
+        if (td.access_token) {
+          clearInterval(poll);
+          localStorage.setItem('github_pat', td.access_token);
+          await tbGHFetchUser(td.access_token);
+        } else if (td.error !== 'authorization_pending') {
+          clearInterval(poll);
+          status.textContent = '❌ ' + (td.error_description || td.error);
+        }
+      } catch (e) {   }
+    }, interval);
+  } catch (err) {
+    status.textContent = '❌ ' + err.message;
+  }
+};
+
+window.tbGHApplyPAT = async function() {
+  const pat = document.getElementById('gh-pat-input').value.trim();
+  if (!pat) return;
+  const status = document.getElementById('gh-pat-status');
+  status.textContent = '⏳ Verifying…';
+  const ok = await tbGHFetchUser(pat);
+  if (!ok) status.textContent = '❌ Invalid token or network error.';
+};
+
+window.tbGHFetchUser = async function(token) {
+  try {
+    const r = await fetch('https://api.github.com/user', {
+      headers: { Authorization: 'Bearer ' + token, 'X-GitHub-Api-Version': '2022-11-28' }
+    });
+    if (!r.ok) return false;
+    const user = await r.json();
+    localStorage.setItem('github_pat', token);
+    localStorage.setItem('github_user', JSON.stringify({ login: user.login, name: user.name, avatar_url: user.avatar_url, html_url: user.html_url }));
+    closeAllModals();
+    window.tbOpenGitHub();
+    return true;
+  } catch { return false; }
+};
+
+window.tbGHSignOut = function() {
+  localStorage.removeItem('github_pat');
+  localStorage.removeItem('github_user');
+  const ghBtn = document.getElementById('tb-github-btn');
+  if (ghBtn) ghBtn.classList.remove('authed');
+  closeAllModals();
+  window.tbOpenGitHub();
+};
+
+ 
+window.tbGHBrowse = async function() {
+  const token = localStorage.getItem('github_pat');
+  const repo = document.getElementById('gh-repo-input').value.trim();
+  const status = document.getElementById('gh-browse-status');
+  const list = document.getElementById('gh-file-list');
+  if (!repo || !token) return;
+  status.textContent = '⏳ Searching…';
+  list.innerHTML = '';
+  try {
+    const r = await fetch(`https://api.github.com/search/code?q=extension:geojson+extension:topojson+repo:${repo}`, {
+      headers: { Authorization: 'Bearer ' + token, 'X-GitHub-Api-Version': '2022-11-28', Accept: 'application/vnd.github+json' }
+    });
+    const d = await r.json();
+    const items = d.items || [];
+    if (!items.length) { status.textContent = 'No GeoJSON / TopoJSON files found in that repo.'; return; }
+    status.textContent = `Found ${items.length} file(s):`;
+    items.forEach(item => {
+      const div = document.createElement('div');
+      div.className = 'tb-repo-item';
+      div.innerHTML = `<strong style="font-size:0.82rem;">${item.name}</strong> <span style="color:#888;font-size:0.75rem;">· ${item.path}</span>`;
+      div.onclick = () => {
+        const rawUrl = `https://raw.githubusercontent.com/${repo}/HEAD/${item.path}`;
+        tbLoadURL_direct(rawUrl, item.name);
+      };
+      list.appendChild(div);
+    });
+  } catch (err) {
+    status.textContent = '❌ ' + err.message;
+  }
+};
+
+window.tbLoadURL_direct = function(url, name) {
+  fetch(url)
+    .then(r => r.json())
+    .then(data => { tbIngestData(data, name); closeAllModals(); })
+    .catch(err => alert('Failed to load: ' + err.message));
+};
+
+ 
+window.tbGHCreatePR = async function() {
+  const token = localStorage.getItem('github_pat');
+  const user  = JSON.parse(localStorage.getItem('github_user') || 'null');
+  const data  = getGeoJSON();
+  const filename = document.getElementById('gh-pr-filename').value.trim();
+  const title    = document.getElementById('gh-pr-title').value.trim() || ('Add ' + filename + ' map');
+  const body     = document.getElementById('gh-pr-body').value.trim();
+  const status   = document.getElementById('gh-pr-status');
+  const btn      = document.getElementById('gh-pr-btn');
+
+  if (!token || !user) { status.textContent = '❌ Sign in first.'; return; }
+  if (!filename)        { status.textContent = '❌ Enter a filename.'; return; }
+  if (!data)            { status.textContent = '❌ No map data to submit.'; return; }
+
+  btn.disabled = true;
+  const upstream = 'alx/travel-guide';
+  const [upOwner, upRepo] = upstream.split('/');
+
+  try {
+    
+    status.textContent = '⏳ Forking repository…';
+    const forkRes = await fetch(`https://api.github.com/repos/${upstream}/forks`, {
+      method: 'POST', headers: { Authorization: 'Bearer ' + token, 'X-GitHub-Api-Version': '2022-11-28', Accept: 'application/vnd.github+json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ default_branch_only: true })
+    });
+    if (!forkRes.ok && forkRes.status !== 422) throw new Error('Fork failed: ' + forkRes.status);
+
+    
+    await new Promise(r => setTimeout(r, 2500));
+
+    
+    status.textContent = '⏳ Getting branch info…';
+    const repoRes = await fetch(`https://api.github.com/repos/${user.login}/${upRepo}`, {
+      headers: { Authorization: 'Bearer ' + token, 'X-GitHub-Api-Version': '2022-11-28' }
+    });
+    const repoData = await repoRes.json();
+    const defaultBranch = repoData.default_branch || 'main';
+
+    const branchRes = await fetch(`https://api.github.com/repos/${user.login}/${upRepo}/git/refs/heads/${defaultBranch}`, {
+      headers: { Authorization: 'Bearer ' + token, 'X-GitHub-Api-Version': '2022-11-28' }
+    });
+    const branchData = await branchRes.json();
+    const sha = branchData.object?.sha;
+    if (!sha) throw new Error('Could not get branch SHA');
+
+    
+    const newBranch = 'add-' + filename.replace(/[^a-z0-9]/gi, '-').toLowerCase() + '-' + Date.now();
+    status.textContent = '⏳ Creating branch…';
+    await fetch(`https://api.github.com/repos/${user.login}/${upRepo}/git/refs`, {
+      method: 'POST', headers: { Authorization: 'Bearer ' + token, 'X-GitHub-Api-Version': '2022-11-28', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ref: `refs/heads/${newBranch}`, sha })
+    });
+
+    
+    status.textContent = '⏳ Committing GeoJSON…';
+    const filePath = `static/${filename}/locations.geojson`;
+    const content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+    await fetch(`https://api.github.com/repos/${user.login}/${upRepo}/contents/${filePath}`, {
+      method: 'PUT', headers: { Authorization: 'Bearer ' + token, 'X-GitHub-Api-Version': '2022-11-28', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: `Add ${filename} GeoJSON map`, content, branch: newBranch })
+    });
+
+    
+    status.textContent = '⏳ Opening pull request…';
+    const prRes = await fetch(`https://api.github.com/repos/${upOwner}/${upRepo}/pulls`, {
+      method: 'POST', headers: { Authorization: 'Bearer ' + token, 'X-GitHub-Api-Version': '2022-11-28', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title, body: body + `\n\n---\n_Submitted via maps.girard-davila.net map toolbar_`, head: `${user.login}:${newBranch}`, base: defaultBranch })
+    });
+    const prData = await prRes.json();
+    if (!prRes.ok) throw new Error(prData.message || 'PR failed');
+
+    status.innerHTML = `✅ PR created! <a href="${prData.html_url}" target="_blank" style="color:#1d4ed8;font-weight:600;">View PR #${prData.number} →</a>`;
+  } catch (err) {
+    status.textContent = '❌ ' + err.message;
+    btn.disabled = false;
+  }
+};
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const user = JSON.parse(localStorage.getItem('github_user') || 'null');
+  const ghBtn = document.getElementById('tb-github-btn');
+  if (user && ghBtn) ghBtn.classList.add('authed');
+});
+
+
+
+
+ 
+const _crcTable = (() => {
+  const t = new Uint32Array(256);
+  for (let i = 0; i < 256; i++) {
+    let c = i;
+    for (let j = 0; j < 8; j++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1;
+    t[i] = c;
+  }
+  return t;
+})();
+
+function _crc32(bytes) {
+  let c = 0xFFFFFFFF;
+  for (let i = 0; i < bytes.length; i++) c = _crcTable[(c ^ bytes[i]) & 0xFF] ^ (c >>> 8);
+  return (c ^ 0xFFFFFFFF) >>> 0;
+}
+
+
+
+function injectPNGMetadata(arrayBuffer, meta) {
+  const enc = new TextEncoder();
+  const textChunks = [];
+  for (const [kw, val] of Object.entries(meta)) {
+    const data = enc.encode(kw + '\x00' + val);
+    const chunk = new Uint8Array(12 + data.length);
+    const dv = new DataView(chunk.buffer);
+    dv.setUint32(0, data.length);               
+    chunk.set([116, 69, 88, 116], 4);           
+    chunk.set(data, 8);                         
+    dv.setUint32(8 + data.length,               
+      _crc32(chunk.slice(4, 8 + data.length)));
+    textChunks.push(chunk);
+  }
+  const extra = textChunks.reduce((s, c) => s + c.length, 0);
+  const src = new Uint8Array(arrayBuffer);
+  const out = new Uint8Array(src.length + extra);
+  out.set(src.slice(0, 33), 0);   
+  let pos = 33;
+  for (const chunk of textChunks) { out.set(chunk, pos); pos += chunk.length; }
+  out.set(src.slice(33), pos);
+  return out.buffer;
+}
+
+
+
+async function captureMapScreenshot() {
+  const mapEl      = document.getElementById('map');
+  const leafletMap = window._leafletMap;
+  if (!mapEl || !leafletMap || typeof L === 'undefined') return null;
+
+  const originalZoom = leafletMap.getZoom();
+
+  
+  
+  
+  
+  
+  const originals = [];
+  leafletMap.eachLayer(l => { if (l instanceof L.TileLayer) originals.push(l); });
+  originals.forEach(l => leafletMap.removeLayer(l));
+
+  
+  
+  const dpr       = Math.min(window.devicePixelRatio || 1, 2);
+  const isRetina  = dpr >= 2;
+  const workerUrl = window.GITHUB_WORKER_URL || '';
+  const useProxy  = workerUrl.length > 8 && !workerUrl.includes('YOUR_SUBDOMAIN');
+  const tileUrl   = useProxy
+    ? `${workerUrl}/osm-tile/{z}/{x}/{y}`                                     
+    : `https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}${isRetina ? '@2x' : ''}.png`;
+
+  const corsLayer = L.tileLayer(tileUrl, {
+    crossOrigin:   'anonymous',
+    attribution:   '',
+    tileSize:      isRetina && !useProxy ? 512 : 256,  
+    zoomOffset:    isRetina && !useProxy ? -1  : 0,    
+  });
+  corsLayer.addTo(leafletMap);
+
+  
+  await new Promise(resolve => {
+    let done = false;
+    const finish = () => { if (!done) { done = true; resolve(); } };
+    corsLayer.once('load', finish);
+    setTimeout(finish, 6000);
+  });
+
+  
+  leafletMap.setZoom(originalZoom - 1, { animate: false });
+  await new Promise(resolve => {
+    let done = false;
+    const finish = () => { if (!done) { done = true; resolve(); } };
+    corsLayer.once('load', finish);
+    setTimeout(finish, 4000);
+  });
+  await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+
+  
+  
+  
+  
+  
+  
+  const W = mapEl.offsetWidth;
+  const H = mapEl.offsetHeight;
+  const canvas  = document.createElement('canvas');
+  canvas.width  = Math.round(W * dpr);
+  canvas.height = Math.round(H * dpr);
+  const ctx     = canvas.getContext('2d');
+  ctx.scale(dpr, dpr); 
+  const mapRect = mapEl.getBoundingClientRect();
+
+  
+  for (const img of mapEl.querySelectorAll('.leaflet-tile-pane img.leaflet-tile')) {
+    if (!img.complete || !img.naturalWidth) continue;
+    const r = img.getBoundingClientRect();
+    try {
+      ctx.drawImage(img,
+        Math.round(r.left - mapRect.left), Math.round(r.top - mapRect.top),
+        Math.round(r.width), Math.round(r.height));
+    } catch {   }
+  }
+
+  
+  const svgEl = mapEl.querySelector('.leaflet-overlay-pane svg');
+  if (svgEl) {
+    try {
+      const svgStr = new XMLSerializer().serializeToString(svgEl);
+      const blobUrl = URL.createObjectURL(new Blob([svgStr], { type: 'image/svg+xml' }));
+      await new Promise(resolve => {
+        const img = new Image();
+        img.onload = () => {
+          const r = svgEl.getBoundingClientRect();
+          ctx.drawImage(img,
+            Math.round(r.left - mapRect.left), Math.round(r.top - mapRect.top),
+            Math.round(r.width), Math.round(r.height));
+          URL.revokeObjectURL(blobUrl);
+          resolve();
+        };
+        img.onerror = () => { URL.revokeObjectURL(blobUrl); resolve(); };
+        img.src = blobUrl;
+      });
+    } catch (e) { console.warn('SVG overlay:', e); }
+  }
+
+  
+  
+  
+  const catColors = window._mapCategoryColors || {};
+  const catIcons  = window._mapCategoryIcons  || {};
+  const fallbackColors = {
+    Beach:'#0ea5e9', Restaurant:'#f97316', Activity:'#22c55e', Hotel:'#8b5cf6',
+    Shopping:'#ec4899', Cafe:'#f59e0b', Port:'#f97316', Fishing:'#0ea5e9',
+    Anchorage:'#6366f1', Hazard:'#ef4444', Service:'#f59e0b', Other:'#6b7280',
+  };
+  const fallbackIcons = {
+    Beach:'🏖️', Restaurant:'🍽️', Activity:'🎯', Hotel:'🏨', Shopping:'🛍️',
+    Cafe:'☕', Port:'⚓', Fishing:'🎣', Anchorage:'🌙', Hazard:'⚠️',
+    Service:'⛽', Other:'📍',
+  };
+  const R = 16; 
+
+  for (const f of (window.allPOIs || [])) {
+    if (f.geometry?.type !== 'Point') continue;
+    const [lng, lat] = f.geometry.coordinates;
+    const pt  = leafletMap.latLngToContainerPoint([lat, lng]);
+    if (pt.x < -R || pt.y < -R || pt.x > W + R || pt.y > H + R) continue;
+
+    const cat   = f.properties?.category || 'Other';
+    const color = catColors[cat] || fallbackColors[cat] || '#6b7280';
+    const emoji = catIcons[cat]  || fallbackIcons[cat]  || '📍';
+
+    
+    ctx.beginPath();
+    ctx.arc(pt.x, pt.y, R, 0, Math.PI * 2);
+    ctx.fillStyle = color;
+    ctx.fill();
+    
+    ctx.strokeStyle = '#fff';
+    ctx.lineWidth   = 2;
+    ctx.stroke();
+    
+    ctx.font         = '15px serif';
+    ctx.textAlign    = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillStyle    = '#fff';
+    ctx.fillText(emoji, pt.x, pt.y);
+  }
+
+  
+  leafletMap.setZoom(originalZoom, { animate: false });
+  leafletMap.removeLayer(corsLayer);
+  originals.forEach(l => leafletMap.addLayer(l));
+
+  console.log('Map preview: canvas composite succeeded (' + (useProxy ? 'OSM proxy' : 'CARTO') + ')');
+  return canvas.toDataURL('image/png');
+}
+
+
+
+function buildShareCard(mapDataUrl) {
+  const cfg      = window.MAP_CONFIG || {};
+  const rawTitle = cfg.title || document.title;
+  const title    = rawTitle.replace(/\s*[—–-]\s*Girard.Davila Travels$/i, '').trim();
+  const siteUrl  = location.origin.replace('https://', '');
+
+  const destMeta = {
+    'koh samui': { emoji: '🏝️', sub: 'Thailand' },
+    'hoi an':    { emoji: '🏮', sub: 'Vietnam' },
+    'fishing':   { emoji: '⚓', sub: 'Gulf of Thailand' },
+  };
+  const lc   = title.toLowerCase();
+  const meta = Object.entries(destMeta).find(([k]) => lc.includes(k))?.[1]
+             || { emoji: '🗺️', sub: '' };
+
+  const card = document.createElement('div');
+  card.id = 'tb-share-card';
+  card.style.cssText = [
+    'position:fixed', 'top:0', 'left:0', 'z-index:99998',
+    'width:540px', 'height:960px',
+    'background:#0b1f35',
+    'color:#fff',
+    'font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif',
+    'display:flex', 'flex-direction:column',
+    'overflow:hidden', 'box-sizing:border-box',
+  ].join(';');
+
+  
+  if (mapDataUrl) {
+    card.innerHTML = `
+      \x3C!-- Full-card map image -->
+      <div style="position:absolute;inset:0;">
+        <img src="${mapDataUrl}"
+          style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+      </div>
+
+      \x3C!-- Brand pill top-left — dark pill, no full gradient -->
+      <div style="position:absolute;top:18px;left:18px;
+        background:rgba(5,15,28,0.72);
+        border:1px solid rgba(255,255,255,0.22);border-radius:30px;
+        padding:6px 14px;font-size:11px;font-weight:700;
+        letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.92);">
+        🗺️ Maps
+      </div>
+
+      \x3C!-- Title + URL block — dark pill at bottom, no full gradient -->
+      <div style="position:absolute;bottom:0;left:0;right:0;
+        background:rgba(5,15,28,0.82);
+        padding:18px 24px 20px;">
+        <div style="font-size:12px;opacity:0.65;margin-bottom:4px;letter-spacing:0.04em;">
+          ${meta.emoji} ${meta.sub}
+        </div>
+        <div style="font-size:30px;font-weight:800;line-height:1.15;letter-spacing:-0.02em;margin-bottom:10px;">
+          ${title}
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:3px;height:20px;background:#f59e0b;border-radius:2px;flex-shrink:0;"></div>
+          <div style="font-size:13px;font-weight:700;opacity:0.88;">${siteUrl}</div>
+        </div>
+      </div>`;
+
+  } else {
+    
+    card.style.background = 'linear-gradient(160deg,#0b1f35 0%,#1a3a5c 60%,#0e4f7a 100%)';
+    card.innerHTML = `
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;
+        justify-content:center;padding:40px 32px;text-align:center;">
+        <div style="font-size:80px;line-height:1;margin-bottom:20px;">${meta.emoji}</div>
+        <div style="font-size:13px;opacity:0.6;margin-bottom:8px;letter-spacing:0.04em;">
+          🗺️ Maps · ${meta.sub}
+        </div>
+        <div style="font-size:40px;font-weight:800;line-height:1.1;letter-spacing:-0.02em;">
+          ${title}
+        </div>
+      </div>
+      <div style="background:rgba(0,0,0,0.4);padding:20px 28px;
+        display:flex;align-items:center;gap:12px;flex-shrink:0;">
+        <div style="width:3px;height:28px;background:#f59e0b;border-radius:2px;flex-shrink:0;"></div>
+        <div style="font-size:14px;font-weight:700;opacity:0.92;">${siteUrl}</div>
+      </div>`;
+  }
+
+  return card;
+}
+
+ 
+window.tbExportPNG = async function () {
+  const btn = document.getElementById('tb-png-btn');
+  if (btn) { btn.textContent = '⏳ Rendering…'; btn.disabled = true; }
+
+  if (typeof htmlToImage === 'undefined') {
+    alert('html-to-image library not loaded. Check your internet connection.');
+    if (btn) { btn.textContent = '📸 PNG'; btn.disabled = false; }
+    return;
+  }
+
+  
+  const overlay = document.createElement('div');
+  overlay.style.cssText = [
+    'position:fixed', 'inset:0', 'z-index:99999',
+    'background:rgba(10,20,35,0.93)',
+    'display:flex', 'flex-direction:column', 'align-items:center', 'justify-content:center',
+    'gap:0.6rem', 'color:white', 'font-family:inherit',
+  ].join(';');
+  const setOverlayMsg = (icon, msg, sub) => {
+    overlay.innerHTML = `
+      <div style="font-size:2rem;">${icon}</div>
+      <div style="font-size:1rem;font-weight:600;">${msg}</div>
+      <div style="font-size:0.78rem;opacity:0.45;">${sub}</div>`;
+  };
+  setOverlayMsg('🗺️', 'Capturing map…', 'rendering tiles & markers');
+  document.body.appendChild(overlay);
+
+  
+  let mapDataUrl = null;
+  try {
+    mapDataUrl = await captureMapScreenshot();
+  } catch (e) {
+    console.warn('Map capture failed, continuing without map:', e);
+  }
+
+  
+  setOverlayMsg('📸', 'Generating 9:16 share card…', '1080 × 1920 px');
+
+  const card = buildShareCard(mapDataUrl);
+  document.body.appendChild(card);
+
+  await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+  await new Promise(r => setTimeout(r, 150));
+
+  try {
+    const dataUrl = await htmlToImage.toPng(card, {
+      width: 540, height: 960, pixelRatio: 2,
+      backgroundColor: '#0b1f35',
+      skipFonts: true,          
+      style: { opacity: '1' },
+    });
+
+    const res    = await fetch(dataUrl);
+    const buffer = await res.arrayBuffer();
+
+    const cfg   = window.MAP_CONFIG || {};
+    const title = (cfg.title || document.title).replace(/\s*[—–-]\s*Girard.Davila Travels$/i,'').trim();
+    const withMeta = injectPNGMetadata(buffer, {
+      'Title':         title,
+      'Source':        location.href,
+      'Author':        'Maps',
+      'URL':           location.href,
+      'Software':      'maps.girard-davila.net',
+      'Creation Time': new Date().toISOString(),
+      'Comment':       `${(window.allPOIs||[]).filter(f=>!f.properties?.premium).length} curated spots · 9:16 · CARTO map`,
+    });
+
+    const filename = title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'') + '-share.png';
+    const blob = new Blob([withMeta], { type: 'image/png' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+
+    if (btn) { btn.textContent = '✅ Done!'; setTimeout(() => { btn.textContent = '📸 PNG'; btn.disabled = false; }, 1800); }
+  } catch (err) {
+    console.error('PNG export error:', err);
+    alert('PNG export failed: ' + err.message);
+    if (btn) { btn.textContent = '📸 PNG'; btn.disabled = false; }
+  } finally {
+    document.body.removeChild(card);
+    document.body.removeChild(overlay);
+  }
+};
+
+})(); 
+</script>
+
+    <div id="filter-btns"></div>
+  </div>
+  <div class="overlay-card scrollable">
+    <div id="poi-list"></div>
+  </div>
+</div>
+
+
+<button class="embed-overlay-toggle" id="overlay-toggle-btn" title="Show list">☰</button>
+</main>
+  <footer>Built with Hugo · Open data · <a href="https://github.com/alx/travel-guide" target="_blank">GitHub</a></footer>
+  
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+window.MAP_CONFIG = {
+  title: '7-Eleven Koh Samui — Maps',
+  geojsonUrl: '\/711-samui\/locations.geojson',
+  embedPath: '/711-samui/',
+  previewImage: '/images/map-previews/711-samui.png'
+};
+
+const GEOJSON_URL = window.MAP_CONFIG.geojsonUrl;
+const STORE_COLOR = '#00a651'; 
+
+let map, allPOIs = [], markers = {}, activeFilter = 'All', activeCard = null;
+Object.defineProperty(window, 'allPOIs', { get: () => allPOIs, configurable: true });
+window._mapCategoryColors = { 'Convenience': STORE_COLOR };
+window._mapCategoryIcons  = { 'Convenience': '🏪' };
+
+function slugify(name) {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
+map = L.map('map').setView([9.52, 99.99], 12);
+window._leafletMap = map;
+let _flyingTo = false;
+map.on('click', clearFocus);
+map.on('dragstart', () => { if (!_flyingTo) clearFocus(); });
+map.on('zoomstart', () => { if (!_flyingTo) clearFocus(); });
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© OpenStreetMap contributors'
+}).addTo(map);
+
+function makeIcon() {
+  return L.divIcon({
+    className: '',
+    html: `<div style="width:32px;height:32px;border-radius:6px;background:white;box-shadow:0 2px 6px rgba(0,0,0,0.3);border:1.5px solid #ddd;display:flex;align-items:center;justify-content:center;padding:2px;"><img src="/images/711-logo.svg" style="width:100%;height:100%;object-fit:contain;" alt="7-Eleven"></div>`,
+    iconSize: [32, 32], iconAnchor: [16, 16], popupAnchor: [0, -20]
+  });
+}
+
+function focusPOI(f) {
+  const [lng, lat] = f.geometry.coordinates;
+  _flyingTo = true;
+  map.flyTo([lat, lng], 16, { duration: 0.7 });
+  map.once('moveend', () => { _flyingTo = false; });
+  if (markers[f._id]) markers[f._id].openPopup();
+  if (activeCard !== null) document.getElementById('card-' + activeCard)?.classList.remove('active');
+  activeCard = f._id;
+  document.getElementById('card-' + f._id)?.classList.add('active');
+  document.getElementById('card-' + f._id)?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  Object.entries(markers).forEach(([id, m]) => {
+    const el = m.getElement();
+    if (el) el.style.opacity = (String(id) === String(f._id)) ? '1' : '0.2';
+  });
+  document.querySelectorAll('.poi-card').forEach(c =>
+    c.classList.toggle('faded', c.id !== 'card-' + f._id));
+}
+
+function clearFocus() {
+  if (activeCard === null) return;
+  document.getElementById('card-' + activeCard)?.classList.remove('active');
+  activeCard = null;
+  Object.values(markers).forEach(m => { const el = m.getElement(); if (el) el.style.opacity = '1'; });
+  document.querySelectorAll('.poi-card').forEach(c => c.classList.remove('faded'));
+}
+
+function renderSidebar() {
+  const search = document.getElementById('search').value.toLowerCase();
+  const list = document.getElementById('poi-list');
+  list.innerHTML = '';
+  const filtered = allPOIs.filter(f => {
+    const p = f.properties;
+    const matchArea = activeFilter === 'All' || p.area === activeFilter;
+    const matchSearch = !search || p.name.toLowerCase().includes(search) || (p.area||'').toLowerCase().includes(search);
+    return matchArea && matchSearch;
+  });
+  document.getElementById('visible-count').textContent = filtered.length;
+  filtered.forEach(f => {
+    const p = f.properties;
+    const [lng, lat] = f.geometry.coordinates;
+    const card = document.createElement('div');
+    card.className = 'poi-card';
+    card.id = 'card-' + f._id;
+    card.innerHTML = `
+      <span class="area-badge">📍 ${p.area || 'Koh Samui'}</span>
+      <h3>${p.name}</h3>
+      <div class="poi-meta">🕐 ${p.hours || '24h'}</div>
+      <div class="poi-actions">
+        <a href="geo:${lat},${lng}" title="Open in OsmAnd">🗺️ OsmAnd</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=${lat},${lng}" target="_blank">Google Maps ↗</a>
+      </div>`;
+    card.onclick = () => focusPOI(f);
+    list.appendChild(card);
+  });
+}
+
+function filterPOIs() { renderSidebar(); updateMarkers(); }
+
+function updateMarkers() {
+  const search = document.getElementById('search').value.toLowerCase();
+  Object.values(markers).forEach(m => map.removeLayer(m));
+  Object.keys(markers).forEach(k => delete markers[k]);
+  allPOIs.forEach(f => {
+    const p = f.properties;
+    const matchArea = activeFilter === 'All' || p.area === activeFilter;
+    const matchSearch = !search || p.name.toLowerCase().includes(search) || (p.area||'').toLowerCase().includes(search);
+    if (!matchArea || !matchSearch) return;
+    const [lng, lat] = f.geometry.coordinates;
+    const m = L.marker([lat, lng], { icon: makeIcon() })
+      .addTo(map)
+      .bindPopup(`<b>${p.name}</b><br><small>📍 ${p.area}</small><br>🕐 ${p.hours || '24h'}`);
+    m.on('click', () => focusPOI(f));
+    markers[f._id] = m;
+  });
+}
+
+function setupAreaFilters(pois) {
+  const areas = ['All', ...Array.from(new Set(pois.map(f => f.properties.area || 'Other'))).sort()];
+  const container = document.getElementById('filter-btns');
+  container.innerHTML = '';
+  areas.forEach(area => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-btn' + (area === activeFilter ? ' active' : '');
+    btn.dataset.area = area;
+    const count = area === 'All' ? pois.length : pois.filter(f => f.properties.area === area).length;
+    btn.innerHTML = area === 'All' ? `All <span class="count-badge">${count}</span>` : `${area} <span class="count-badge">${count}</span>`;
+    btn.onclick = () => {
+      activeFilter = area;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterPOIs();
+    };
+    container.appendChild(btn);
+  });
+}
+
+fetch(GEOJSON_URL)
+  .then(r => r.json())
+  .then(data => {
+    allPOIs = data.features.map((f, i) => ({ ...f, _id: i }));
+    window.MAP_CONFIG.geojsonData = data;
+    setupAreaFilters(allPOIs);
+    renderSidebar();
+    updateMarkers();
+    if (Object.keys(markers).length > 0) {
+      const group = L.featureGroup(Object.values(markers));
+      map.fitBounds(group.getBounds().pad(0.08));
+    }
+  })
+  .catch(() => {
+    document.getElementById('poi-list').innerHTML = '<p style="color:#888;font-size:0.85rem;padding:1rem;">No locations loaded yet.</p>';
+  });
+
+
+(function () {
+  if (!document.documentElement.classList.contains('embed-mode')) return;
+  var overlay = document.querySelector('.map-overlay');
+  var btn     = document.getElementById('overlay-toggle-btn');
+  if (!overlay || !btn) return;
+  function setOverlay(open) {
+    var mapEl = document.getElementById('map');
+    var firstCard = overlay.querySelector('.overlay-card:not(.scrollable)');
+    overlay.style.display = open ? 'flex' : 'none';
+    if (firstCard) firstCard.style.display = open ? 'block' : '';
+    btn.textContent = open ? '✕' : '☰';
+    btn.title       = open ? 'Hide list' : 'Show list';
+    if (mapEl) {
+      if (open) {
+        requestAnimationFrame(function () {
+          if (window.innerWidth > 768) {
+            mapEl.style.left   = (overlay.offsetWidth / 2) + 'px';
+            mapEl.style.bottom = '';
+          } else {
+            mapEl.style.bottom = (overlay.offsetHeight / 2) + 'px';
+            mapEl.style.left   = '';
+          }
+          if (window.map) window.map.invalidateSize();
+        });
+      } else {
+        mapEl.style.left   = '';
+        mapEl.style.bottom = '';
+        if (window.map) window.map.invalidateSize();
+      }
+    }
+  }
+  btn.addEventListener('click', function () {
+    setOverlay(overlay.style.display === 'none' || overlay.style.display === '');
+  });
+  var showOnLoad = new URLSearchParams(location.search).get('overlay') === '1';
+  setOverlay(showOnLoad);
+})();
+</script>
+
+<style>
+   
+  .loc-dot {
+    width: 18px; height: 18px;
+    background: #2563eb; border: 3px solid white;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    animation: loc-pulse 2s ease-out infinite;
+  }
+  @keyframes loc-pulse {
+    0%   { box-shadow: 0 0 0 0    rgba(37,99,235,0.55); }
+    70%  { box-shadow: 0 0 0 11px rgba(37,99,235,0);    }
+    100% { box-shadow: 0 0 0 0    rgba(37,99,235,0);    }
+  }
+
+   
+  .route-info {
+    font-size: 0.74rem; font-weight: 600; color: #1a3a5c;
+    margin-top: 0.3rem; padding: 0.18rem 0.55rem;
+    background: #eff6ff; border-radius: 6px; display: inline-block;
+  }
+
+   
+  .header-btn.loc-searching {
+    border-color: #3b82f6; color: #3b82f6;
+    animation: btn-blink 1s linear infinite;
+  }
+  .header-btn.loc-active {
+    border-color: #22c55e; color: #166534; background: #f0fdf4;
+  }
+  @keyframes btn-blink { 50% { opacity: 0.45; } }
+</style>
+
+<script>
+(function () {
+
+  let _locMarker  = null;   
+  let _locCircle  = null;   
+  let _locWatchId = null;   
+  let _locLatLng  = null;   
+  let _routeLayer = null;   
+  let _pendingId  = null;   
+  let _activeId   = null;   
+
+   
+  window.toggleLocation = function () {
+    const map = window._leafletMap;
+    const btn = document.getElementById('locate-btn');
+    if (!map || !btn) return;
+
+    if (_locWatchId !== null) {
+      
+      navigator.geolocation.clearWatch(_locWatchId);
+      _locWatchId = null;
+      _locLatLng  = null;
+      if (_locMarker) { map.removeLayer(_locMarker); _locMarker = null; }
+      if (_locCircle) { map.removeLayer(_locCircle); _locCircle = null; }
+      window.clearRoute();
+      btn.textContent = '📍 Position';
+      btn.classList.remove('loc-searching', 'loc-active');
+      return;
+    }
+
+    if (!navigator.geolocation) {
+      alert('La géolocalisation n\'est pas supportée par ce navigateur.');
+      return;
+    }
+
+    btn.textContent = '⏳…';
+    btn.classList.add('loc-searching');
+
+    _locWatchId = navigator.geolocation.watchPosition(
+      pos => {
+        const { latitude: lat, longitude: lng, accuracy } = pos.coords;
+        _locLatLng = [lat, lng];
+
+        if (!_locMarker) {
+          
+          const icon = L.divIcon({
+            className: '',
+            html: '<div class="loc-dot"></div>',
+            iconSize: [18, 18],
+            iconAnchor: [9, 9]
+          });
+          _locMarker = L.marker([lat, lng], { icon, zIndexOffset: 1000, interactive: false })
+            .addTo(map);
+          _locCircle = L.circle([lat, lng], {
+            radius: accuracy,
+            color: '#3b82f6', fillColor: '#3b82f6',
+            fillOpacity: 0.07, weight: 1, interactive: false
+          }).addTo(map);
+          map.flyTo([lat, lng], Math.max(map.getZoom(), 15), { duration: 0.8 });
+        } else {
+          _locMarker.setLatLng([lat, lng]);
+          _locCircle.setLatLng([lat, lng]).setRadius(accuracy);
+        }
+
+        btn.textContent = '🔵 Position';
+        btn.classList.remove('loc-searching');
+        btn.classList.add('loc-active');
+
+        
+        if (_pendingId !== null) {
+          const id = _pendingId;
+          _pendingId = null;
+          window.showRoute(id);
+        } else if (_activeId !== null) {
+          
+          const poi = (window.allPOIs || []).find(f => f._id === _activeId);
+          if (poi) _drawRoute(_activeId, poi.geometry.coordinates[1], poi.geometry.coordinates[0]);
+        }
+      },
+      err => {
+        btn.textContent = '📍 Position';
+        btn.classList.remove('loc-searching');
+        _locWatchId = null;
+        if (err.code === 1) {
+          alert('Géolocalisation refusée. Autorisez-la dans les paramètres du navigateur.');
+        }
+      },
+      { enableHighAccuracy: true, maximumAge: 5000, timeout: 15000 }
+    );
+  };
+
+   
+  window.showRoute = function (poiId) {
+    const poi = (window.allPOIs || []).find(f => f._id === poiId);
+    if (!poi) return;
+
+    if (!_locLatLng) {
+      
+      _pendingId = poiId;
+      if (_locWatchId === null) window.toggleLocation();
+      return;
+    }
+
+    const [destLng, destLat] = poi.geometry.coordinates;
+    _drawRoute(poiId, destLat, destLng);
+  };
+
+   
+  window.clearRoute = function () {
+    if (_routeLayer) {
+      window._leafletMap?.removeLayer(_routeLayer);
+      _routeLayer = null;
+    }
+    _activeId  = null;
+    _pendingId = null;
+    document.querySelectorAll('.route-info').forEach(el => el.remove());
+    document.querySelectorAll('[data-route-poi]').forEach(a => {
+      a.textContent = '🧭 Route';
+      a.style.opacity = '';
+    });
+  };
+
+   
+  async function _drawRoute(poiId, destLat, destLng) {
+    if (!_locLatLng) return;
+    const map = window._leafletMap;
+    const [origLat, origLng] = _locLatLng;
+
+    const routeBtn = document.querySelector(`[data-route-poi="${poiId}"]`);
+    if (routeBtn) { routeBtn.textContent = '⏳'; routeBtn.style.opacity = '0.6'; }
+
+    
+    if (_routeLayer) { map.removeLayer(_routeLayer); _routeLayer = null; }
+    document.querySelectorAll('.route-info').forEach(el => el.remove());
+    _activeId = poiId;
+
+    try {
+      const url = `https://router.project-osrm.org/route/v1/foot/${origLng},${origLat};${destLng},${destLat}?overview=full&geometries=geojson`;
+      const res  = await fetch(url);
+      const data = await res.json();
+      if (data.code !== 'Ok' || !data.routes?.length) throw new Error('no route');
+
+      const route   = data.routes[0];
+      const distM   = Math.round(route.distance);
+      const distStr = distM < 1000
+        ? distM + '\u202fm'
+        : (distM / 1000).toFixed(1) + '\u202fkm';
+      const mins = Math.round(route.duration / 60);
+
+      const coords = route.geometry.coordinates.map(([ln, la]) => [la, ln]);
+      _routeLayer  = L.polyline(coords, {
+        color: '#1a3a5c', weight: 4, opacity: 0.85,
+        dashArray: '8 6', lineCap: 'round', lineJoin: 'round'
+      }).addTo(map);
+
+      map.fitBounds(
+        _routeLayer.getBounds().extend(_locLatLng),
+        { padding: [48, 48], maxZoom: 17 }
+      );
+
+      _injectBadge(poiId, `🚶 ${distStr} · ${mins} min à pied`);
+
+    } catch {
+      
+      const R  = 6371000;
+      const φ1 = origLat * Math.PI / 180, φ2 = destLat * Math.PI / 180;
+      const dφ = (destLat - origLat) * Math.PI / 180;
+      const dλ = (destLng - origLng) * Math.PI / 180;
+      const a  = Math.sin(dφ/2)**2 + Math.cos(φ1) * Math.cos(φ2) * Math.sin(dλ/2)**2;
+      const d  = R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      const distStr = d < 1000
+        ? Math.round(d) + '\u202fm'
+        : (d / 1000).toFixed(1) + '\u202fkm';
+
+      _routeLayer = L.polyline([_locLatLng, [destLat, destLng]], {
+        color: '#6b7280', weight: 3, opacity: 0.6, dashArray: '5 8'
+      }).addTo(map);
+
+      _injectBadge(poiId, `📏 ${distStr} à vol d'oiseau`);
+    }
+
+    if (routeBtn) { routeBtn.textContent = '🧭 Route'; routeBtn.style.opacity = ''; }
+  }
+
+  function _injectBadge(poiId, text) {
+    const card = document.getElementById('card-' + poiId);
+    if (!card) return;
+    const badge = document.createElement('div');
+    badge.className = 'route-info';
+    badge.textContent = text;
+    const actions = card.querySelector('.poi-actions');
+    actions ? actions.before(badge) : card.appendChild(badge);
+  }
+
+})();
+</script>
+
+
+  
+  <div class="map-footer-cta">
+  📍 Like this map? <a href="/#custom-maps">Get a custom one for your trip →</a>
+</div>
+
+<style>
+.map-footer-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 7000;
+  background: rgba(26,58,92,0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: rgba(255,255,255,0.9);
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-align: center;
+  padding: 0.55rem 1rem;
+  padding-bottom: calc(0.55rem + env(safe-area-inset-bottom));
+}
+.map-footer-cta a {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.4);
+  transition: border-color 0.15s;
+}
+.map-footer-cta a:hover { border-color: #fff; }
+.contact-toggle { display: none !important; }
+</style>
+
+  
+</body>
+</html>
