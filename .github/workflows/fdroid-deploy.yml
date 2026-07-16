@@ -20,7 +20,17 @@ jobs:
       
       - name: Set up Android SDK
         uses: android-actions/setup-android@v2
-      
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies and sync Capacitor
+        run: |
+          npm install
+          npx cap sync android
+
       - name: Build APK
         run: |
           cd android
